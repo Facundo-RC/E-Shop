@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <h1 id="titulo">E-Shop</h1>
+        <p id="mensaje-bienvenida">Moda con elegancia</p> 
+        
+        <div id="info-usuario"></div>
+
+        <button id="btn-iniciar" class="btn-primary">Entrar</button>
+
+        <div id="menu-productos" style="display: none; margin-top: 20px;">
+            <p>Escribe el producto que deseas:</p>
+            <p class="precio-texto">Remeras ($500) | Pantalones ($1000) | Calzado ($1500)</p>
+            
+            <input type="text" id="input-producto" placeholder="Ej: Remeras" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 100%; margin: 10px 0;">
+            
+            <button class="btn-primary" id="btn-comprar-input" style="width: 100%;">Comprar</button>
+
+            <button id="btn-salir" class="btn-exit">Salir del Sitio</button>
+        </div>
+
+        <div id="galeria-productos" class="galeria" style="display: none;">
+            <div class="producto" data-nombre="Remera" data-precio="500" data-input="remeras">
+                <img src="img/remera.png" alt="Remera">
+                <h4>Remera - $500</h4>
+                <button class="btn-primary btn-seleccionar" data-input="remeras">Seleccionar</button>
+            </div>
+            <div class="producto" data-nombre="Pantalon" data-precio="1000" data-input="pantalones">
+                <img src="img/pantalon.png" alt="Pantalón">
+                <h4>Pantalón - $1000</h4>
+                <button class="btn-primary btn-seleccionar" data-input="pantalones">Seleccionar</button>
+            </div>
+            <div class="producto" data-nombre="Calzado" data-precio="1500" data-input="calzado">
+                <img src="img/calzado.png" alt="Calzado">
+                <h4>Calzado - $1500</h4>
+                <button class="btn-primary btn-seleccionar" data-input="calzado">Seleccionar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
