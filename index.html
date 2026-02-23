@@ -14,7 +14,14 @@
         
         <div id="info-usuario"></div>
 
-        <button id="btn-iniciar" class="btn-primary">Entrar</button>
+        <div id="login-section">
+            <form id="login-form" autocomplete="off">
+                <input type="text" id="login-usuario" class="form-input" placeholder="Usuario" required>
+                <input type="password" id="login-pass" class="form-input" placeholder="Contraseña" required>
+                <button type="submit" id="btn-login" class="btn-primary">Ingresar</button>
+                <p id="login-mensaje" class="login-msg"></p>
+            </form>
+        </div>
 
         <div id="menu-productos" style="display: none; margin-top: 20px;">
             <p>Escribe el producto que deseas:</p>
