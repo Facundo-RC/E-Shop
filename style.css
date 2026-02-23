@@ -98,6 +98,36 @@ p {
     transition: border-color 0.3s;
 }
 
+#login-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-items: center;
+    margin-bottom: 10px;
+}
+
+.form-input {
+    padding: 16px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    width: 50%;
+    max-width: 520px;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.login-msg {
+    color: #cc0000;
+    min-height: 1.2em;
+    font-size: 0.95rem;
+}
+
 #input-producto:focus {
     outline: none;
     border-color: #000000 !important;
@@ -170,4 +200,3 @@ p {
     padding: 14px 18px;
     font-size: 1.05rem;
 }
-
