@@ -2,22 +2,42 @@ let usuarioCorrecto = "pepe2015";
 let contraseñaCorrecta = "2214";
 let saldo = 2000;
 
-const btnIniciar = document.getElementById("btn-iniciar");
 const divInfo = document.getElementById("info-usuario");
 const menuProductos = document.getElementById("menu-productos");
 const mensaje = document.getElementById("mensaje-bienvenida");
 const btnSalir = document.getElementById("btn-salir");
 const galeria = document.getElementById("galeria-productos");
+const loginForm = document.getElementById("login-form");
+const loginSection = document.getElementById("login-section");
+const loginMensaje = document.getElementById("login-mensaje");
+const loginUsuario = document.getElementById("login-usuario");
+const loginPass = document.getElementById("login-pass");
+let intentos = 3;
 
 
 const inputProducto = document.getElementById("input-producto");
 const btnComprarInput = document.getElementById("btn-comprar-input");
 
-btnIniciar.addEventListener("click", () => {
-    if (usuLog()) {
-        iniciarTienda();
-    }
-});
+if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const usuario = (loginUsuario?.value || "").trim();
+        const contraseña = (loginPass?.value || "").trim();
+        if (usuario === usuarioCorrecto && contraseña === contraseñaCorrecta) {
+            loginMensaje.textContent = "Bienvenido";
+            iniciarTienda();
+            if (loginSection) loginSection.style.display = "none";
+        } else {
+            intentos -= 1;
+            if (intentos > 0) {
+                loginMensaje.textContent = "Usuario o contraseña incorrecto, te quedan " + intentos + " intentos";
+            } else {
+                loginMensaje.textContent = "Agotaste los intentos";
+                Array.from(loginForm.elements).forEach(el => el.disabled = true);
+            }
+        }
+    });
+}
 
 
 btnComprarInput.addEventListener("click", () => {
@@ -36,25 +56,7 @@ btnComprarInput.addEventListener("click", () => {
     inputProducto.value = ""; 
 });
 
-function usuLog() {
-    let usuario = prompt("Ingrese su usuario");
-    let contraseña = prompt("Ingrese su contraseña");
-    
-    for (let i = 2; i > 0; i--) {
-        if (usuarioCorrecto == usuario && contraseñaCorrecta == contraseña) {
-            alert("Bienvenido");
-            return true;
-        } else {
-            alert("Usuario o contraseña incorrecto, te quedan " + i + " intentos");
-            usuario = prompt("Ingrese su usuario");
-            contraseña = prompt("Ingrese su contraseña");
-        }
-    }
-    return false;
-}
-
 function iniciarTienda() {
-    btnIniciar.style.display = "none";
     menuProductos.style.display = "block";
     if (galeria) {
         galeria.style.display = "grid";
